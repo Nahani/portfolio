@@ -33,7 +33,7 @@ export function Projects() {
       <div className="mb-12 text-center">
         <h2 className="mb-4 text-3xl font-bold md:text-4xl">Featured Projects</h2>
         <p className="mx-auto max-w-2xl text-muted-foreground">
-          A collection of my most impactful projects, demonstrating my expertise in various technologies.
+          A collection of my most impactful projects.
         </p>
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
