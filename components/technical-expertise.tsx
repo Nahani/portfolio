@@ -20,7 +20,7 @@ export function TechnicalExpertise() {
         'React Native',
         'Expo',
         'Native APIs',
-        'App Store Deployment',
+        'App Store Deployment (Fastlane)',
       ],
     },
     {

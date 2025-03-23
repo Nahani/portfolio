@@ -3,11 +3,12 @@ import Image from 'next/image';
 
 const experiences = [
   {
-    title: 'Senior Front-End Engineer | React | TypeScript | FinTech',
-    company: 'Symphony',
+    title: 'Senior Front-End Engineer',
+    company: 'Symphony - FinTech',
     period: 'July 2020 - Present',
     description: 'At Symphony Communication, I design and develop high-performance, secure user interfaces for the leading financial services communication. My expertise in React, TypeScript, and modern front-end architectures enhances user experience.',
     logo: '/images/companies/symphony.jpg',
+    technologies: ['React.js', 'TypeScript', 'Redux', 'WebSocket', 'Jest', 'Webpack']
   },
   {
     title: 'Founder',
@@ -15,13 +16,15 @@ const experiences = [
     period: 'January 2018 - January 2023',
     description: 'Le Petit Livreur provides delivery services to more than 60 businesses in the Cannes area. The platform has grown to 15,000 active users with 35,000 app downloads on Apple Store and Google Play.',
     logo: '/images/companies/lepetitlivreur.jpg',
+    technologies: ['React Native', 'Expo', 'Firebase', 'Node.js', 'Google Maps API', 'Stripe']
   },
   {
-    title: 'Front-End Engineer | React | React Native | TypeScript',
+    title: 'Front-End Engineer',
     company: 'WeOpt',
     period: 'February 2018 - July 2020',
-    description: 'As a Front End Engineer, I developed web and mobile apps to meet design requirements and fulfill user stories. I also managed production deployments using React JS, React Native, GitLab CI/CD, and AWS.',
+    description: 'As a Front End Engineer, I developed web and mobile apps to meet design requirements and fulfill user stories. I also managed production deployments.',
     logo: '/images/companies/weopt.jpg',
+    technologies: ['React.js', 'React Native', 'TypeScript', 'AWS', 'GitLab CI/CD', 'Fastlane', 'Node.js']
   },
   {
     title: 'QA Engineer',
@@ -29,6 +32,7 @@ const experiences = [
     period: 'October 2014 - September 2018',
     description: 'Led QA initiatives in the R&D-RDM-CBT (Payment & Ticketing) department, focusing on payment product validation. Key responsibilities included determining test objectives, reviewing specifications, creating test plans, and managing defects. Technologies: Python, SQL, REST, Selenium, HP ALM, Jira, Scrum, ISTQB.',
     logo: '/images/companies/amadeus.jpg',
+    technologies: ['Python', 'SQL', 'REST', 'Selenium', 'HP ALM', 'Jira', 'Scrum', 'ISTQB']
   },
   {
     title: 'Developer',
@@ -36,6 +40,7 @@ const experiences = [
     period: 'March 2014 - September 2014',
     description: 'Designed and developed intranet applications to streamline and automate internal bank workflows. Gathered and analyzed requirements from various bank departments to create software solutions that improved efficiency and productivity. Technologies: SharePoint, C# .NET.',
     logo: '/images/companies/indosuez.png',
+    technologies: ['SharePoint', 'C#', '.NET', 'SQL Server']
   },
 ];
 
@@ -74,7 +79,17 @@ export function Timeline() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">{experience.description}</p>
+              <p className="mb-4 text-muted-foreground">{experience.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {experience.technologies.map((tech, techIndex) => (
+                  <span
+                    key={techIndex}
+                    className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </CardContent>
           </Card>
         ))}
