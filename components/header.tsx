@@ -3,15 +3,16 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { ThemeToggle } from './theme-toggle';
 import { Button } from './ui/button';
+import Link from 'next/link';
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between">
         <div className="mr-4 flex">
-          <a href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
             <span className="text-lg font-bold">Nolan Potier</span>
-          </a>
+          </Link>
         </div>
         <div className="flex items-center justify-end space-x-4">
           <nav className="flex items-center space-x-4">
