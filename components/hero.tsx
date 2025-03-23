@@ -11,7 +11,7 @@ import {
 
 export function Hero() {
   return (
-    <div className="container py-16 md:py-24">
+    <div className="container py-16 md:py-15">
       <Card className="hero-gradient relative overflow-hidden rounded-2xl border bg-background/50 p-8 backdrop-blur-sm">
         <div className="grid gap-8 md:grid-cols-2">
           <div className="relative z-10">

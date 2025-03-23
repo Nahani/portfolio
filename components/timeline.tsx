@@ -68,13 +68,17 @@ export function Timeline() {
                   />
                 </div>
                 <div className="flex-1">
-                  <CardTitle className="flex items-center justify-between">
-                    <span className="text-xl">{experience.title}</span>
-                    <span className="rounded-full bg-secondary px-4 py-1 text-sm font-medium">
-                      {experience.period}
-                    </span>
-                  </CardTitle>
-                  <p className="text-lg font-medium text-primary">{experience.company}</p>
+                  <div className="flex flex-col space-y-1">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div className="space-y-1">
+                        <CardTitle className="text-xl">{experience.title}</CardTitle>
+                        <p className="text-lg font-medium text-primary">{experience.company}</p>
+                      </div>
+                      <span className="mt-1 md:mt-0 self-start md:self-auto rounded-full bg-secondary px-3 py-1 text-sm font-medium">
+                        {experience.period}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardHeader>
