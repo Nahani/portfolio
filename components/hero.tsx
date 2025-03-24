@@ -22,7 +22,7 @@ export function Hero() {
               Senior<br />Front End Developer
             </h1>
             <h2 className="mb-4 text-xl font-medium text-muted-foreground md:text-2xl">
-              React · React Native · TypeScript Expert
+              React · NextJS · React Native · TypeScript
             </h2>
             <p className="mb-8 max-w-[600px] text-lg text-muted-foreground">
               With over 10 years of experience building scalable applications and leading development teams.
