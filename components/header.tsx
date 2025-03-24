@@ -16,12 +16,12 @@ export function Header() {
         </div>
         <div className="flex items-center justify-end space-x-4">
           <nav className="flex items-center space-x-4">
-            {/* <Button variant="ghost" size="sm" className="rounded-full" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="sm" className="rounded-full" asChild>
+              <a href="https://github.com/nahani" target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
               </a>
-            </Button> */}
+            </Button>
             <Button variant="ghost" size="sm" className="rounded-full" asChild>
               <a href="https://linkedin.com/in/nolan-potier" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="mr-2 h-4 w-4" />
@@ -29,7 +29,7 @@ export function Header() {
               </a>
             </Button>
             <Button variant="ghost" size="sm" className="rounded-full" asChild>
-              <a href="mailto:nolanpotier@gmail.com">
+              <a href="mailto:contact@nolanpotier.dev">
                 <Mail className="mr-2 h-4 w-4" />
                 Contact
               </a>

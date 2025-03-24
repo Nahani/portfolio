@@ -5,11 +5,11 @@ import { TechnicalExpertise } from '@/components/expertise';
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
       <TechnicalExpertise />
       <Timeline />
       <Projects />
-    </main>
+    </>
   );
 }
