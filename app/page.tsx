@@ -1,15 +1,15 @@
 import { Hero } from '@/components/hero';
 import { Timeline } from '@/components/timeline';
 import { Projects } from '@/components/projects';
-import { TechnicalExpertise } from '@/components/technical-expertise';
+import { TechnicalExpertise } from '@/components/expertise';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Hero />
       <TechnicalExpertise />
       <Timeline />
       <Projects />
-    </>
+    </main>
   );
 }
