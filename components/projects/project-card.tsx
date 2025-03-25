@@ -33,18 +33,22 @@ export function ProjectCard({ title, description, technologies, github, demo, im
         </div>
       </CardContent>
       <CardFooter className="flex gap-4">
-        {/* <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full" asChild>
-          <a href={github} target="_blank" rel="noopener noreferrer">
-            <Github className="h-4 w-4" />
-            Code
-          </a>
-        </Button> */}
-        <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full" asChild>
-          <a href={demo} target="_blank" rel="noopener noreferrer">
-            <Globe className="h-4 w-4" />
-            Website
-          </a>
-        </Button>
+        {github && (
+          <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full" asChild>
+            <a href={github} target="_blank" rel="noopener noreferrer">
+              <Github className="h-4 w-4" />
+              Code
+            </a>
+          </Button>
+        )}
+        {demo && (
+          <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full" asChild>
+            <a href={demo} target="_blank" rel="noopener noreferrer">
+              <Globe className="h-4 w-4" />
+              Website
+            </a>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );
