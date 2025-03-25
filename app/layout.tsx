@@ -8,9 +8,9 @@ import Footer from '@/components/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Senior Developer Portfolio',
-  description: 'Portfolio showcasing expertise in React, React Native, and TypeScript development',
-  metadataBase: new URL('https://example.com'),
+  title: 'Nolan Potier - Senior Frontend Developer',
+  description: 'Portfolio showcasing professional experience in building enterprise applications, mobile apps, and innovative solutions using React, React Native, and TypeScript',
+  metadataBase: new URL('https://nolanpotier.dev'),
 };
 
 export default function RootLayout({
