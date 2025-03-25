@@ -22,43 +22,43 @@ export function Hero() {
               Senior<br />Front End Developer
             </h1>
             <div className="mb-8 flex flex-wrap gap-3">
-              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 transition-all duration-300 hover:bg-primary/20 hover:scale-105 hover:shadow-lg cursor-default">
                 <Image
                   src="/images/icons/react.svg"
                   alt="React"
                   width={20}
                   height={20}
-                  className="text-primary md:w-[24px] md:h-[24px]"
+                  className="text-primary md:w-[24px] md:h-[24px] transition-transform duration-300 group-hover:rotate-12"
                 />
                 <span className="text-sm md:text-base">React</span>
               </div>
-              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 transition-all duration-300 hover:bg-primary/20 hover:scale-105 hover:shadow-lg cursor-default">
                 <Image
                   src="/images/icons/next-js.svg"
                   alt="Next.js"
                   width={20}
                   height={20}
-                  className="text-primary md:w-[26px] md:h-[26px]"
+                  className="text-primary md:w-[26px] md:h-[26px] transition-transform duration-300 group-hover:rotate-12"
                 />
                 <span className="text-sm md:text-base">Next.js</span>
               </div>
-              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 transition-all duration-300 hover:bg-primary/20 hover:scale-105 hover:shadow-lg cursor-default">
                 <Image
                   src="/images/icons/react-native.svg"
                   alt="React Native"
                   width={20}
                   height={20}
-                  className="text-primary md:w-[24px] md:h-[24px]"
+                  className="text-primary md:w-[24px] md:h-[24px] transition-transform duration-300 group-hover:rotate-12"
                 />
                 <span className="text-sm md:text-base">React Native</span>
               </div>
-              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 transition-all duration-300 hover:bg-primary/20 hover:scale-105 hover:shadow-lg cursor-default">
                 <Image
                   src="/images/icons/typescript.svg"
                   alt="TypeScript"
                   width={20}
                   height={20}
-                  className="text-primary md:w-[24px] md:h-[24px]"
+                  className="text-primary md:w-[24px] md:h-[24px] transition-transform duration-300 group-hover:rotate-12"
                 />
                 <span className="text-sm md:text-base">TypeScript</span>
               </div>

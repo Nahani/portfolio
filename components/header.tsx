@@ -17,21 +17,21 @@ export function Header() {
         <div className="flex items-center justify-end space-x-4">
           <nav className="flex items-center space-x-4">
             <Button variant="ghost" size="sm" className="rounded-full" asChild>
-              <a href="https://github.com/nahani" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
+              <a href="https://github.com/nahani" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <Github className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">GitHub</span>
               </a>
             </Button>
             <Button variant="ghost" size="sm" className="rounded-full" asChild>
-              <a href="https://linkedin.com/in/nolan-potier" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
+              <a href="https://linkedin.com/in/nolan-potier" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <Linkedin className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">LinkedIn</span>
               </a>
             </Button>
             <Button variant="ghost" size="sm" className="rounded-full" asChild>
-              <a href="mailto:contact@nolanpotier.dev">
-                <Mail className="mr-2 h-4 w-4" />
-                Contact
+              <a href="mailto:contact@nolanpotier.dev" className="flex items-center">
+                <Mail className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Contact</span>
               </a>
             </Button>
             <ThemeToggle />
