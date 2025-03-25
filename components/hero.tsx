@@ -21,9 +21,48 @@ export function Hero() {
             <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
               Senior<br />Front End Developer
             </h1>
-            <h2 className="mb-4 text-xl font-medium text-muted-foreground md:text-2xl">
-              React · NextJS · React Native · TypeScript
-            </h2>
+            <div className="mb-8 flex flex-wrap gap-3">
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+                <Image
+                  src="/images/icons/react.svg"
+                  alt="React"
+                  width={20}
+                  height={20}
+                  className="text-primary md:w-[24px] md:h-[24px]"
+                />
+                <span className="text-sm md:text-base">React</span>
+              </div>
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+                <Image
+                  src="/images/icons/next-js.svg"
+                  alt="Next.js"
+                  width={20}
+                  height={20}
+                  className="text-primary md:w-[26px] md:h-[26px]"
+                />
+                <span className="text-sm md:text-base">Next.js</span>
+              </div>
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+                <Image
+                  src="/images/icons/react-native.svg"
+                  alt="React Native"
+                  width={20}
+                  height={20}
+                  className="text-primary md:w-[24px] md:h-[24px]"
+                />
+                <span className="text-sm md:text-base">React Native</span>
+              </div>
+              <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5">
+                <Image
+                  src="/images/icons/typescript.svg"
+                  alt="TypeScript"
+                  width={20}
+                  height={20}
+                  className="text-primary md:w-[24px] md:h-[24px]"
+                />
+                <span className="text-sm md:text-base">TypeScript</span>
+              </div>
+            </div>
             <p className="mb-8 max-w-[600px] text-lg text-muted-foreground">
               With over 10 years of experience building scalable applications and leading development teams.
               Specialized in creating exceptional user experiences with modern web technologies.
