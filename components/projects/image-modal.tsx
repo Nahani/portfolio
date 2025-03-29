@@ -2,7 +2,7 @@
 
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Image from 'next/image';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DialogClose } from "@/components/ui/dialog";
 
@@ -15,22 +15,64 @@ interface ImageModalProps {
 export function ImageModal({ images, currentIndex, onIndexChange }: ImageModalProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [direction, setDirection] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Preload next and previous images
+  useEffect(() => {
+    const nextIndex = (currentIndex + 1) % images.length;
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    
+    const preloadImage = (src: string) => {
+      const img = new window.Image();
+      img.src = src;
+    };
+
+    preloadImage(images[nextIndex].src);
+    preloadImage(images[prevIndex].src);
+  }, [currentIndex, images]);
 
   const nextImage = useCallback(() => {
     setDirection(1);
+    setIsLoading(true);
     onIndexChange((currentIndex + 1) % images.length);
   }, [currentIndex, images.length, onIndexChange]);
 
   const previousImage = useCallback(() => {
     setDirection(-1);
+    setIsLoading(true);
     onIndexChange((currentIndex - 1 + images.length) % images.length);
   }, [currentIndex, images.length, onIndexChange]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!touchStart) return;
+    const touchEnd = e.touches[0].clientX;
+    const diff = touchStart - touchEnd;
+    setDirection(diff > 0 ? 1 : -1);
+  };
+
+  const handleTouchEnd = () => {
+    if (direction > 0) {
+      nextImage();
+    } else if (direction < 0) {
+      previousImage();
+    }
+    setTouchStart(null);
+    setDirection(0);
+  };
 
   return (
     <div 
       className="relative h-[80vh] w-full overflow-hidden bg-black/95"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <DialogClose asChild>
         <motion.button
@@ -52,13 +94,22 @@ export function ImageModal({ images, currentIndex, onIndexChange }: ImageModalPr
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <Image
-            src={images[currentIndex].src}
-            alt={images[currentIndex].alt}
-            fill
-            className="object-contain"
-            priority
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={images[currentIndex].src}
+              alt={images[currentIndex].alt}
+              fill
+              className="object-contain"
+              priority
+              onLoadingComplete={() => setIsLoading(false)}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+            />
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-white/20 border-t-white rounded-full animate-spin" />
+              </div>
+            )}
+          </div>
         </motion.div>
       </AnimatePresence>
 
@@ -90,12 +141,7 @@ export function ImageModal({ images, currentIndex, onIndexChange }: ImageModalPr
               <ChevronRight className="h-8 w-8 transition-transform duration-200 group-hover:scale-110" />
             </button>
           </div>
-          <motion.div 
-            className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center items-center gap-3">
             {images.map((_, index) => (
               <motion.button
                 key={index}
@@ -113,7 +159,7 @@ export function ImageModal({ images, currentIndex, onIndexChange }: ImageModalPr
                 whileTap={{ scale: 0.9 }}
               />
             ))}
-          </motion.div>
+          </div>
         </>
       )}
     </div>

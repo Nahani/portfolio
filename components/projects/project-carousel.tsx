@@ -21,14 +21,31 @@ export function ProjectCarousel({ images }: ProjectCarouselProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Preload next and previous images
+  useEffect(() => {
+    const nextIndex = (currentIndex + 1) % images.length;
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    
+    const preloadImage = (src: string) => {
+      const img = new window.Image();
+      img.src = src;
+    };
+
+    preloadImage(images[nextIndex].src);
+    preloadImage(images[prevIndex].src);
+  }, [currentIndex, images]);
 
   const nextImage = useCallback(() => {
     setDirection(1);
+    setIsLoading(true);
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
   const previousImage = useCallback(() => {
     setDirection(-1);
+    setIsLoading(true);
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
@@ -74,12 +91,22 @@ export function ProjectCarousel({ images }: ProjectCarouselProps) {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
-                <Image
-                  src={images[currentIndex].src}
-                  alt={images[currentIndex].alt}
-                  fill
-                  className="object-cover"
-                />
+                <div className="relative w-full h-full">
+                  <Image
+                    src={images[currentIndex].src}
+                    alt={images[currentIndex].alt}
+                    fill
+                    className="object-cover"
+                    priority
+                    onLoadingComplete={() => setIsLoading(false)}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  {isLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                      <div className="w-6 h-6 border-3 border-white/20 border-t-white rounded-full animate-spin" />
+                    </div>
+                  )}
+                </div>
               </motion.div>
             </AnimatePresence>
             
