@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Mail, Linkedin, MessageSquare } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { ProfileImage } from '@/components/hero/profile-image';
 
 export function Hero() {
   return (
@@ -87,12 +88,6 @@ export function Hero() {
                       LinkedIn
                     </a>
                   </DropdownMenuItem>
-                  {/* <DropdownMenuItem asChild>
-                    <a href="#contact" className="flex items-center">
-                      <MessageSquare className="mr-2 h-4 w-4" />
-                      Contact Form
-                    </a>
-                  </DropdownMenuItem> */}
                 </DropdownMenuContent>
               </DropdownMenu>
               <Button size="lg" variant="outline" className="rounded-full text-base">
@@ -100,22 +95,7 @@ export function Hero() {
               </Button>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-full bg-primary/10 blur-2xl"></div>
-              <div className="relative h-[300px] w-[300px]">
-                <Image
-                  src="/images/nolanpotier.jpg"
-                  alt="Profile"
-                  className="rounded-full border-4 border-background object-cover shadow-xl"
-                  width={300}
-                  height={300}
-                  priority
-                  unoptimized
-                />
-              </div>
-            </div>
-          </div>
+          <ProfileImage />
         </div>
       </Card>
     </div>
