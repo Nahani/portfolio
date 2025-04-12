@@ -7,7 +7,7 @@ export const experiences: Experience[] = [
     period: 'July 2020 - Present',
     description: 'At Symphony, I contributed to the evolution of a leading financial communication platform used by over 1,300 institutions and 600,000+ users worldwide. My expertise in React, TypeScript, and modern front-end architectures enhances user experience.',
     logo: '/images/companies/symphony.jpg',
-    technologies: ['React.js', 'TypeScript', 'Redux', 'WebSocket', 'Jest', 'Webpack']
+    technologies: ['React.js', 'TypeScript', 'Redux', 'WebSocket', 'Jest/RTL', 'Playwright']
   },
   {
     title: 'Founder',

@@ -20,6 +20,8 @@ A modern, responsive portfolio website built with Next.js 15, TypeScript, and Ta
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **UI Components:** Shadcn/ui
+- **Markdown:** react-markdown, marked
+- **Typography:** @tailwindcss/typography
 - **Animations:** Framer Motion
 - **Icons:** Lucide Icons
 - **Deployment:** Firebase App Hosting

@@ -90,9 +90,11 @@ export function Hero() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+              <a href="#projects">
               <Button size="lg" variant="outline" className="rounded-full text-base">
-                <a href="#projects">View Projects</a>
+                View Projects
               </Button>
+              </a>
             </div>
           </div>
           <ProfileImage />
