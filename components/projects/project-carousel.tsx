@@ -98,7 +98,7 @@ export function ProjectCarousel({ images }: ProjectCarouselProps) {
                     fill
                     className="object-cover"
                     priority
-                    onLoadingComplete={() => setIsLoading(false)}
+                    onLoad={() => setIsLoading(false)}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   {isLoading && (

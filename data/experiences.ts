@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     title: 'Senior Front-End Engineer',
     company: 'Symphony - FinTech',
     period: 'July 2020 - Present',
-    description: 'At Symphony, I contributed to the evolution of a leading financial communication platform used by over 1,300 institutions and 600,000+ users worldwide. My expertise in React, TypeScript, and modern front-end architectures enhances user experience.',
+    description: 'At Symphony, I contributed to the evolution of a leading financial communication platform used by over 1,300 institutions and 600,000+ users worldwide. I built high-performance and secure front-end applications used by top-tier financial institutions. As a senior front-end engineer, I design and implement complex UIs using React, TypeScript, and scalable architecture patterns. My focus is on security, performance, and user experience in mission-critical environments. I also collaborate closely with product, design, and backend teams to deliver end-to-end solutions aligned with business priorities.  I leverage my expertise in modern front-end technologies to drive innovation and enhance usability across the platform.',
     logo: '/images/companies/symphony.jpg',
     technologies: ['React.js', 'TypeScript', 'Redux', 'WebSocket', 'Jest/RTL', 'Playwright']
   },
@@ -13,7 +13,7 @@ export const experiences: Experience[] = [
     title: 'Founder',
     company: 'Le Petit Livreur',
     period: 'January 2018 - January 2023',
-    description: 'Le Petit Livreur provides delivery services to more than 60 businesses in the Cannes area. The platform has grown to 15,000 active users with 35,000 app downloads on Apple Store and Google Play.',
+    description: 'Le Petit Livreur provides delivery services to more than 60 businesses in the Cannes area. The platform has grown to 15,000 active users with 35,000 app downloads on the Apple Store and Google Play. As the founder, I built the entire product from scratch, including the mobile applications (iOS and Android), the backend infrastructure, and the internal tools. I also led all aspects of the project such as branding, marketing, client acquisition, and operations, ensuring the platform\'s growth and long-term sustainability.',
     logo: '/images/companies/lepetitlivreur.jpg',
     technologies: ['React Native', 'Expo', 'Firebase', 'Node.js', 'Google Maps API', 'Stripe']
   },

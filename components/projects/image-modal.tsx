@@ -101,7 +101,7 @@ export function ImageModal({ images, currentIndex, onIndexChange }: ImageModalPr
               fill
               className="object-contain"
               priority
-              onLoadingComplete={() => setIsLoading(false)}
+              onLoad={() => setIsLoading(false)}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
             />
             {isLoading && (
