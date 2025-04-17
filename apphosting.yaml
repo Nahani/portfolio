@@ -1,0 +1,4 @@
+# apphosting.yaml
+env:
+  - variable: FIREBASE_WEBAPP_CONFIG
+    secret: firebase-webapp-config

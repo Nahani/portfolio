@@ -1,10 +1,9 @@
-import { Monitor, Smartphone, Server } from 'lucide-react';
 import { ExpertiseCategory } from '@/types/expertise';
 
 export const expertiseCategories: ExpertiseCategory[] = [
   {
     title: 'Frontend Development',
-    icon: Monitor,
+    iconName: 'monitor',
     skills: [
       'React & React Hooks',
       'TypeScript',
@@ -14,7 +13,7 @@ export const expertiseCategories: ExpertiseCategory[] = [
   },
   {
     title: 'Mobile Development',
-    icon: Smartphone,
+    iconName: 'smartphone',
     skills: [
       'React Native',
       'Expo',
@@ -24,7 +23,7 @@ export const expertiseCategories: ExpertiseCategory[] = [
   },
   {
     title: 'Backend',
-    icon: Server,
+    iconName: 'server',
     skills: [
       'Node.js',
       'Serverless cloud functions (AWS - GCP)',

@@ -4,12 +4,16 @@ import * as React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const { logThemeChange } = useAnalytics();
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    logThemeChange(newTheme);
   };
 
   return (

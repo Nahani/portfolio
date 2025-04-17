@@ -1,7 +1,7 @@
-import { LucideIcon } from 'lucide-react';
+import { IconName } from '@/components/expertise/icon-registry';
 
 export interface ExpertiseCategory {
   title: string;
-  icon: LucideIcon;
+  iconName: IconName;
   skills: string[];
 } 

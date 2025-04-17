@@ -2,8 +2,19 @@
 
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 export default function Footer() {
+  const { logSocialLinkClick, logContactClick } = useAnalytics();
+
+  const handleSocialClick = (platform: string) => {
+    logSocialLinkClick(platform);
+  };
+
+  const handleContactClick = () => {
+    logContactClick('email');
+  };
+
   return (
     <footer className="w-full border-t border-t-slate-200 dark:border-t-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,6 +27,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 transition-colors"
+                  onClick={() => handleSocialClick('github')}
                 >
                   <Github className="h-5 w-5" />
                 </Link>
@@ -24,12 +36,14 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 transition-colors"
+                  onClick={() => handleSocialClick('linkedin')}
                 >
                   <Linkedin className="h-5 w-5" />
                 </Link>
                 <Link
                   href="mailto:contact@nolanpotier.dev"
                   className="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 transition-colors"
+                  onClick={handleContactClick}
                 >
                   <Mail className="h-5 w-5" />
                 </Link>

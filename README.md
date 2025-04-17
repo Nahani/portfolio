@@ -13,6 +13,7 @@ A modern, responsive portfolio website built with Next.js 15, TypeScript, and Ta
 - 🎯 Project showcase with interactive carousel
 - 📊 Timeline of professional experience
 - 💡 Expertise section highlighting technical skills
+- 📈 Firebase Analytics integration for visitor tracking and insights
 
 ## Tech Stack
 
@@ -24,6 +25,7 @@ A modern, responsive portfolio website built with Next.js 15, TypeScript, and Ta
 - **Typography:** @tailwindcss/typography
 - **Animations:** Framer Motion
 - **Icons:** Lucide Icons
+- **Analytics:** Firebase Analytics
 - **Deployment:** Firebase App Hosting
 
 ## Getting Started
@@ -32,6 +34,7 @@ A modern, responsive portfolio website built with Next.js 15, TypeScript, and Ta
 
 - Node.js 18.17 or later
 - Yarn package manager
+- Firebase project (for analytics)
 
 ### Installation
 
@@ -46,12 +49,20 @@ cd portfolio
 yarn install
 ```
 
-3. Run the development server:
+3. Set up environment variables:
+   - Copy `.env.example` to `.env.local`
+   - Fill in your Firebase project details
+
+```bash
+cp .env.example .env.local
+```
+
+4. Run the development server:
 ```bash
 yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ## Project Structure
 

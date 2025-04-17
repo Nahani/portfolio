@@ -11,17 +11,20 @@ import {
 } from "@/components/ui/dialog";
 import { ImageModal } from './image-modal';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface ProjectCarouselProps {
   images: { src: string; alt: string }[];
+  projectTitle?: string;
 }
 
-export function ProjectCarousel({ images }: ProjectCarouselProps) {
+export function ProjectCarousel({ images, projectTitle }: ProjectCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const { logProjectInteraction } = useAnalytics();
 
   // Preload next and previous images
   useEffect(() => {
@@ -41,13 +44,19 @@ export function ProjectCarousel({ images }: ProjectCarouselProps) {
     setDirection(1);
     setIsLoading(true);
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  }, [images.length]);
+    if (projectTitle) {
+      logProjectInteraction(projectTitle, 'carousel_nav');
+    }
+  }, [images.length, projectTitle, logProjectInteraction]);
 
   const previousImage = useCallback(() => {
     setDirection(-1);
     setIsLoading(true);
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  }, [images.length]);
+    if (projectTitle) {
+      logProjectInteraction(projectTitle, 'carousel_nav');
+    }
+  }, [images.length, projectTitle, logProjectInteraction]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);

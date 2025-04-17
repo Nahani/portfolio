@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Github, Globe, ChevronDown, ChevronUp } from 'lucide-react';
 import { ProjectCarousel } from './project-carousel';
 import ReactMarkdown from 'react-markdown';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface ProjectCardProps {
   title: string;
@@ -20,6 +21,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, technologies, github, demo, images, youtubeId }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { logProjectInteraction, logProjectLinkClick } = useAnalytics();
   
   // Get the first paragraph (everything before the first line break)
   const firstParagraph = description.split('\n\n')[0];
@@ -27,9 +29,50 @@ export function ProjectCard({ title, description, technologies, github, demo, im
   // Determine if there is more content to show
   const hasMoreContent = description.length > firstParagraph.length;
 
+  // Log view when project card is visible
+  useEffect(() => {
+    // Use IntersectionObserver for better visibility detection
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          logProjectInteraction(title, 'view');
+        }
+      },
+      { threshold: 0.5 } // At least 50% of the card is visible
+    );
+
+    const element = document.getElementById(`project-${title.replace(/\s+/g, '-').toLowerCase()}`);
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, [title, logProjectInteraction]);
+
+  const handleExpand = () => {
+    setIsExpanded(!isExpanded);
+    logProjectInteraction(title, isExpanded ? 'collapse' : 'expand');
+  };
+
+  const handleGithubClick = () => {
+    logProjectLinkClick(title, 'github');
+  };
+
+  const handleDemoClick = () => {
+    logProjectLinkClick(title, 'demo');
+  };
+
   return (
-    <Card className="flex h-full flex-col overflow-hidden border bg-background/50 backdrop-blur-sm">
-      <ProjectCarousel images={images} />
+    <Card 
+      className="flex h-full flex-col overflow-hidden border bg-background/50 backdrop-blur-sm"
+      id={`project-${title.replace(/\s+/g, '-').toLowerCase()}`}
+    >
+      <ProjectCarousel images={images} projectTitle={title} />
       <CardHeader>
         <CardTitle className="text-xl">{title}</CardTitle>
       </CardHeader>
@@ -57,7 +100,7 @@ export function ProjectCard({ title, description, technologies, github, demo, im
               variant="link" 
               size="sm" 
               className="mt-2 flex items-center gap-1 text-xs text-primary hover:text-primary/80"
-              onClick={() => setIsExpanded(!isExpanded)}
+              onClick={handleExpand}
             >
               {isExpanded ? (
                 <>
@@ -82,7 +125,12 @@ export function ProjectCard({ title, description, technologies, github, demo, im
       <CardFooter className="flex gap-4">
         {github && (
           <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full" asChild>
-            <a href={github} target="_blank" rel="noopener noreferrer">
+            <a 
+              href={github} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={handleGithubClick}
+            >
               <Github className="h-4 w-4" />
               Code
             </a>
@@ -90,7 +138,12 @@ export function ProjectCard({ title, description, technologies, github, demo, im
         )}
         {demo && (
           <Button variant="outline" size="sm" className="flex items-center gap-2 rounded-full" asChild>
-            <a href={demo} target="_blank" rel="noopener noreferrer">
+            <a 
+              href={demo} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={handleDemoClick}
+            >
               <Globe className="h-4 w-4" />
               Website
             </a>
