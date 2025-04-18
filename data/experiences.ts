@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
     title: 'Front-End Engineer',
     company: 'WeOpt',
     period: 'February 2018 - July 2020',
-    description: 'As a Front End Engineer, I developed web and mobile apps to meet design requirements and fulfill user stories. I also managed production deployments.',
+    description: `At WeOpt, I designed and developed the social mobile app "First Land Of Poker (FLOP)", aimed at uniting the global poker community. I led the creation of interactive interfaces allowing users to share their games, photos, and news, invite friends to join real-time games, and access an international casino directory filterable by location. I also contributed to the integration of advanced features such as tournament festival management, event scheduling, and the groundwork for bankroll tracking modules. The project, developed in collaboration with poker legend Patrik Antonius, was launched during the PAPC in Tallinn and published on both the App Store and Google Play. I ensured the quality, performance, and scalability of the app using React Native, TypeScript, Redux, and AWS, while coordinating production deployments and ongoing maintenance.`,
     logo: '/images/companies/weopt.jpg',
     technologies: ['React.js', 'React Native', 'TypeScript', 'AWS', 'GitLab CI/CD', 'Fastlane', 'Node.js']
   },
